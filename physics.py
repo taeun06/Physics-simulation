@@ -44,18 +44,12 @@ def dir(start:np.ndarray,end:np.ndarray):       #시작점과 끝점의 위치�
     return (end - start) / v_len(end - start)
 
 def list_macro(arr:list,func):                  #주어진 리스트의 모든 내용에 대해 주어진 함수를 적용한 값을 반환
-    result = []
-    for value in arr:
-        result.append(func(value))
-    return result
+    return [func(i) for i in arr]
 def integrate_list(list1:list,list2:list,func): #두 리스트의 값을 주어진 함수로 병합
     if len(list1) != len(list2):
         raise ValueError(f"""Two given list has different length
                              list1:{len(list1)} list2:{len(list2)}""")
-    result = []
-    for i in range(len(list1)):
-        result.append(func(list1[i],list2[i]))
-    return result
+    return [func(list1[i], list2[i]) for i in range(len(list1))]
 
 #field 객체와 moving object 객체가 따로 있음.
 #moving object는 field를 가질 수도, 아닐 수도 있음
